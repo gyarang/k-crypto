@@ -2,7 +2,6 @@ package table
 
 import (
 	"errors"
-	"fmt"
 	"github.com/gyarang/k-crypto/hangul"
 )
 
@@ -49,14 +48,7 @@ func NewTable(key string) (Table, error) {
 		}
 	}
 
-	for _, l := range table {
-		for _, r := range l {
-			fmt.Print(string(r))
-		}
-		fmt.Println()
-	}
-
-	return nil, nil
+	return table, nil
 }
 
 func getHanguls(key string) ([]hangul.Hangul, error) {
