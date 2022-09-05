@@ -5,8 +5,9 @@ import (
 	"testing"
 )
 
-func TestNewTable(t *testing.T) {
-	expect := [][]rune{{'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ'},
+func TestNewTable_table(t *testing.T) {
+	expect := [][]rune{
+		{'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ'},
 		{'ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ', 'ㅛ', 'ㅜ', 'ㅠ', 'ㅡ'},
 		{'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', 'ㅏ'},
 		{'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', 'ㅏ', 'ㅑ'},
@@ -19,9 +20,9 @@ func TestNewTable(t *testing.T) {
 	tb, err := NewTable("금강산")
 	assert.Nil(t, err)
 
-	for x, line := range tb {
+	for x, line := range tb.table {
 		for y := range line {
-			if tb[x][y] != expect[x][y] {
+			if tb.table[x][y] != expect[x][y] {
 				t.Error("generate new table failed")
 				return
 			}
