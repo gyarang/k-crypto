@@ -1,8 +1,3 @@
-// 한글 유니코드표
-// ⌜     587        ⌝
-// 가, 각, 갂, ...깊, 깋 ⌝
-// 까, 깍, 깎, ...낖, 낗 ⌟ 588
-
 package hangul
 
 import (
@@ -48,7 +43,7 @@ func NewHangul(input rune) (Hangul, error) {
 	return h, nil
 }
 
-func (h Hangul) GetHangul() rune {
+func (h Hangul) Rune() rune {
 	hangul := 0xAC00 + 28*(21*util.GetIndexOfItem(chos, h.Cho)) +
 		28*util.GetIndexOfItem(jungs, h.Jung) +
 		util.GetIndexOfItem(jongs, h.Jong)
