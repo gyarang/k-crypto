@@ -3,11 +3,12 @@ package table
 import (
 	"errors"
 	"github.com/gyarang/k-crypto/hangul"
+	"github.com/gyarang/k-crypto/util"
 )
 
 var (
-	validJaum  = "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
-	validMoum  = "ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣ"
+	validJaum  = []rune{'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'}
+	validMoum  = []rune{'ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ', 'ㅛ', 'ㅜ', 'ㅠ', 'ㅡ', 'ㅣ'}
 	tableRunes = []rune{'ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅅ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ', 'ㅏ', 'ㅑ', 'ㅓ', 'ㅕ', 'ㅗ', 'ㅛ', 'ㅜ', 'ㅠ', 'ㅡ', 'ㅣ'}
 )
 
@@ -41,7 +42,7 @@ func NewTable(key string) (Table, error) {
 	}
 
 	for _, line := range table {
-		start := getIndexOfItem(line[0])
+		start := util.GetIndexOfItem(tableRunes, line[0])
 		for i := 1; i < 9; i++ {
 			start++
 			line[i] = tableRunes[start%24]
@@ -76,25 +77,7 @@ func getHanguls(key string) ([]hangul.Hangul, error) {
 }
 
 func isValidHangul(input hangul.Hangul) bool {
-	return checkRuneInString(validJaum, input.Cho) &&
-		checkRuneInString(validMoum, input.Jung) &&
-		checkRuneInString(validJaum, input.Jong)
-}
-
-func checkRuneInString(str string, r rune) bool {
-	for _, v := range str {
-		if v == r {
-			return true
-		}
-	}
-	return false
-}
-
-func getIndexOfItem(r rune) int {
-	for i, v := range tableRunes {
-		if r == v {
-			return i
-		}
-	}
-	return -1
+	return util.IsItemInSlice(validJaum, input.Cho) &&
+		util.IsItemInSlice(validMoum, input.Jung) &&
+		util.IsItemInSlice(validJaum, input.Jong)
 }

@@ -7,6 +7,7 @@ package hangul
 
 import (
 	"errors"
+	"github.com/gyarang/k-crypto/util"
 )
 
 var (
@@ -45,6 +46,13 @@ func NewHangul(input rune) (Hangul, error) {
 	h.Jong = jongs[temp%28]
 
 	return h, nil
+}
+
+func (h Hangul) GetHangul() rune {
+	hangul := 0xAC00 + 28*(21*util.GetIndexOfItem(chos, h.Cho)) +
+		28*util.GetIndexOfItem(jungs, h.Jung) +
+		util.GetIndexOfItem(jongs, h.Jong)
+	return rune(hangul)
 }
 
 // isValidHangul returns true when input is valid
