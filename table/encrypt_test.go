@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestTable_Encode(t *testing.T) {
+func TestTable_Encrypt(t *testing.T) {
 	tb, err := NewTable("금강산")
 	assert.Nil(t, err)
 
