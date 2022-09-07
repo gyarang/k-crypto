@@ -2,6 +2,7 @@ package table
 
 import (
 	"errors"
+	"fmt"
 	"github.com/gyarang/k-crypto/hangul"
 	"github.com/gyarang/k-crypto/util"
 )
@@ -66,6 +67,22 @@ func NewTable(key string) (Table, error) {
 	table := Table{table: runeTable, tableMap: tableMap}
 
 	return table, nil
+}
+
+// Print prints bit readable table (hard coded)
+func (t Table) Print() {
+	fmt.Print("  ")
+	for i := 1; i < 10; i++ {
+		fmt.Printf("%d  ", i)
+	}
+	fmt.Println()
+	for y := len(t.table) - 1; y >= 0; y-- {
+		fmt.Printf("%d ", y+1)
+		for x := 0; x < len(t.table[y]); x++ {
+			fmt.Printf("%s ", string(t.table[y][x]))
+		}
+		fmt.Print("\n")
+	}
 }
 
 func getHanguls(key string) ([]hangul.Hangul, error) {
