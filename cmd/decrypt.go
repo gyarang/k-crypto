@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -33,7 +32,6 @@ example:
 			panic(err)
 		}
 
-		fmt.Println("복호화 값:")
 		for _, r := range decrypted {
 			fmt.Print(string(r))
 		}

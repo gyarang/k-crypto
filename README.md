@@ -12,14 +12,12 @@ make build
 ### Encrypt
 ```bash
 k-crypto encrypt -k 금강산 -i "속히 상경하라"
-암호화 값:
 4725893888 47684889244838687168
 ```
 
 ### Decrypt
 ```bash
 k-crypto decrypt -k 금강산 -i "6725833882 67513283243238511351" 
-복호화 값:
 ㅅㅗㄱㅎㅣ ㅅㅏㅇㄱㅕㅇㅎㅏㄹㅏ
 ```
 
