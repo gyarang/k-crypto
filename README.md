@@ -23,7 +23,7 @@ k-crypto decrypt -k 금강산 -i "6725833882 67513283243238511351"
 
 ### Table
 ```bash
-k-crypto table -k 금강산                                                                                                              14:27:39
+k-crypto table -k 금강산
   1  2  3  4  5  6  7  8  9  
 9 ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ 
 8 ㅡ ㅣ ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ 
