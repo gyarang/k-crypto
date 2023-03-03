@@ -30,7 +30,8 @@ example:
 
 		encrypted, err := table.Encrypt(raw)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
+			return
 		}
 
 		fmt.Println(encrypted)

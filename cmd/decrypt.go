@@ -30,7 +30,8 @@ example:
 
 		decrypted, err := t.Decrypt(encrypted)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
+			return
 		}
 
 		for _, r := range decrypted {
