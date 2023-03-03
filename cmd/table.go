@@ -21,7 +21,7 @@ var tableCmd = &cobra.Command{
 example:
 	k-crypto table -k 금강산`,
 	Run: func(cmd *cobra.Command, args []string) {
-		t, err := table.NewTable(decryptKey)
+		t, err := table.NewTable(tableKey)
 		if err != nil {
 			panic(err)
 		}
