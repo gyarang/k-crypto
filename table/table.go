@@ -28,7 +28,7 @@ type Table struct {
 }
 
 func NewTable(key string) (Table, error) {
-	hArr, err := getHanguls(key)
+	hArr, err := getHangulKey(key)
 	if err != nil {
 		return Table{}, err
 	}
@@ -85,7 +85,7 @@ func (t Table) Print() {
 	}
 }
 
-func getHanguls(key string) ([]hangul.Hangul, error) {
+func getHangulKey(key string) ([]hangul.Hangul, error) {
 	input := []rune(key)
 	if len(input) != 3 {
 		return nil, NotValidLength
