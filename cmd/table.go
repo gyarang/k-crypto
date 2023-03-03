@@ -4,6 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"github.com/gyarang/k-crypto/table"
 
 	"github.com/spf13/cobra"
@@ -23,7 +24,8 @@ example:
 	Run: func(cmd *cobra.Command, args []string) {
 		t, err := table.NewTable(tableKey)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
+			return
 		}
 		t.Print()
 	},

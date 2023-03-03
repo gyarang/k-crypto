@@ -24,7 +24,8 @@ example:
 	Run: func(cmd *cobra.Command, args []string) {
 		t, err := table.NewTable(decryptKey)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
+			return
 		}
 
 		decrypted, err := t.Decrypt(encrypted)
