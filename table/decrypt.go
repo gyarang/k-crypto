@@ -8,13 +8,10 @@ var (
 
 func (t Table) Decrypt(input string) ([]rune, error) {
 	inputRunes := []rune(input)
-	var decryptRunes = []rune{}
-	i := 0
-	for {
-		if i >= len(inputRunes) {
-			break
-		}
+	var decryptRunes []rune
 
+	i := 0
+	for i < len(inputRunes) {
 		if inputRunes[i] == ' ' {
 			decryptRunes = append(decryptRunes, ' ')
 			i++
