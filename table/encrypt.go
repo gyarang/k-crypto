@@ -37,6 +37,8 @@ func splitMixedJamo(r rune) []rune {
 		return []rune{'ㄹ', 'ㅂ'}
 	case 'ㅀ':
 		return []rune{'ㄹ', 'ㅎ'}
+	case 'ㅄ':
+		return []rune{'ㅂ', 'ㅅ'}
 	case 'ㅐ':
 		return []rune{'ㅏ', 'ㅣ'}
 	case 'ㅒ':
