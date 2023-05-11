@@ -1,6 +1,9 @@
 package table
 
-import "errors"
+import (
+	"errors"
+	"github.com/gyarang/gohangul"
+)
 
 var (
 	DecryptNotValidInput = errors.New("decrypt: Not valid input")
@@ -34,4 +37,8 @@ func (t Table) Decrypt(input string) ([]rune, error) {
 	}
 
 	return decryptRunes, nil
+}
+
+func AssembleDecryptedRunes(decryptRunes []rune) string {
+	return gohangul.Assemble(decryptRunes)
 }

@@ -3,8 +3,9 @@ module github.com/gyarang/k-crypto
 go 1.18
 
 require (
+	github.com/gyarang/gohangul v0.1.1
 	github.com/spf13/cobra v1.5.0
-	github.com/stretchr/testify v1.8.0
+	github.com/stretchr/testify v1.8.2
 )
 
 require (

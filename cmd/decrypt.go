@@ -34,10 +34,7 @@ example:
 			return
 		}
 
-		for _, r := range decrypted {
-			fmt.Print(string(r))
-		}
-		fmt.Println()
+		fmt.Println(table.AssembleDecryptedRunes(decrypted))
 	},
 }
 
